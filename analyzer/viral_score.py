@@ -9,10 +9,10 @@ Since save_count + share_count are often NULL on Apify, we use proxies:
 Output: 0-100 score, normalized within niche.
 """
 from __future__ import annotations
-import math
-import statistics
 
-from config import SCORE_WEIGHTS, NICHES
+import math
+
+from config import NICHES, SCORE_WEIGHTS
 from database import conn
 
 

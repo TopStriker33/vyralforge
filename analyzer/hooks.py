@@ -5,9 +5,9 @@ feeds to Claude API to classify into known formulas (POV, transformation,
 forbidden knowledge, etc.) or discover new ones. Stores in `hooks` table.
 """
 from __future__ import annotations
+
 import json
 import re
-from typing import Any
 
 from anthropic import Anthropic
 

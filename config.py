@@ -4,8 +4,9 @@ This is the example config. Customize NICHES, SCORE_WEIGHTS, and compliance
 rules to fit your specific creator vertical. The library treats niches as
 opaque tags — pick whatever names make sense for your work.
 """
-from pathlib import Path
 import os
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent / ".env")

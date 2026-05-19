@@ -1,9 +1,9 @@
 """SQLite helper — connection, schema bootstrap, basic queries."""
-import sqlite3
 import json
-from pathlib import Path
+import sqlite3
 from contextlib import contextmanager
-from typing import Iterator, Any
+from pathlib import Path
+from typing import Any, Iterator
 
 from config import DB_PATH
 

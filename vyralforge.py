@@ -12,7 +12,7 @@ Commands:
   python vyralforge.py refresh                    # full pipeline scrape→analyze
 """
 from __future__ import annotations
-import sys
+
 from datetime import date, timedelta
 
 import click
@@ -65,7 +65,7 @@ def scrape_all(per_tag: int):
 @click.option("--top", default=20, type=int)
 def deepdive(niche: str, top: int):
     """Deep-dive top reels: transcripts + audio_id (Apify reel-scraper)."""
-    from scrapers.apify_reels import top_candidates_for_deepdive, deep_dive
+    from scrapers.apify_reels import deep_dive, top_candidates_for_deepdive
     cands = top_candidates_for_deepdive(niche, top)
     if not cands:
         console.print("[yellow]no candidates — run scrape first[/yellow]")
@@ -86,15 +86,15 @@ def tiktok(count: int):
 @cli.command()
 def analyze():
     """Run all analyzers: viral_score → sounds lifecycle → timing heatmap → hooks."""
-    from analyzer.viral_score import score_all_posts
+    from analyzer.hooks import extract_hooks
     from analyzer.sounds import refresh_lifecycle
     from analyzer.timing import build_heatmap
-    from analyzer.hooks import extract_hooks
+    from analyzer.viral_score import score_all_posts
 
     s = score_all_posts()
     console.print(f"  scored {s} posts")
-    l = refresh_lifecycle()
-    console.print(f"  refreshed {l} sound lifecycles")
+    n_life = refresh_lifecycle()
+    console.print(f"  refreshed {n_life} sound lifecycles")
     h = build_heatmap()
     console.print(f"  built {h} heatmap cells")
     for n in NICHES:
@@ -141,7 +141,7 @@ def plan(niche: str, theme: str, week: str | None):
 @cli.command()
 def dashboard():
     """Render local HTML dashboard and open in browser."""
-    from ui.render_dashboard import render, open_in_browser
+    from ui.render_dashboard import open_in_browser, render
     p = render()
     open_in_browser(p)
     console.print(f"[green]✓[/green] {p}")
@@ -151,12 +151,12 @@ def dashboard():
 @click.option("--per-tag", default=20, type=int)
 def refresh(per_tag: int):
     """Full pipeline: scrape → tiktok → analyze → dashboard."""
-    from scrapers.apify_discover import discover_by_hashtags
-    from scrapers.tiktok_trends import pull_tiktok_trends
-    from analyzer.viral_score import score_all_posts
+    from analyzer.hooks import extract_hooks
     from analyzer.sounds import refresh_lifecycle
     from analyzer.timing import build_heatmap
-    from analyzer.hooks import extract_hooks
+    from analyzer.viral_score import score_all_posts
+    from scrapers.apify_discover import discover_by_hashtags
+    from scrapers.tiktok_trends import pull_tiktok_trends
     from ui.render_dashboard import render
 
     init_db()
@@ -171,7 +171,8 @@ def refresh(per_tag: int):
         console.print(f"  tiktok: {t}")
     except Exception as e:
         console.print(f"  [yellow]tiktok skipped: {e}[/yellow]")
-    s = score_all_posts(); console.print(f"  scored: {s}")
+    s = score_all_posts()
+    console.print(f"  scored: {s}")
     refresh_lifecycle()
     build_heatmap()
     for n in NICHES:

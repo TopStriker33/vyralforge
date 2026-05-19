@@ -1,6 +1,5 @@
 """Tests for analyzer/sounds.py lifecycle classification."""
 from __future__ import annotations
-from datetime import datetime, timezone, timedelta
 
 from analyzer.sounds import _classify_age, _parse
 

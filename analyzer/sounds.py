@@ -5,7 +5,8 @@ Rule of thumb: sounds peak 3-7 days post-detection, die by day 14.
 TikTok-first sounds get a "rising" boost for 72h after IG appearance.
 """
 from __future__ import annotations
-from datetime import datetime, timezone, timedelta
+
+from datetime import datetime, timezone
 
 from config import SOUND_LIFECYCLE
 from database import conn

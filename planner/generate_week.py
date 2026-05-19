@@ -10,14 +10,15 @@ Combines:
 Output: JSON plan stored in `plans` table, returned as dict.
 """
 from __future__ import annotations
+
 import json
 from datetime import date, timedelta
 
-from config import NICHES, DISTRIBUTION_TRIGGERS
-from database import conn
 from analyzer.hooks import top_hooks
 from analyzer.sounds import best_sounds_for_planner
-from analyzer.timing import best_slots, DAY_NAMES
+from analyzer.timing import DAY_NAMES, best_slots
+from config import NICHES
+from database import conn
 from planner.llm_brain import generate_post_concept
 
 

@@ -4,13 +4,13 @@ Pulls top posts/reels per niche hashtag set. Cheap, no transcripts.
 Use to build the candidate pool. Deep-dive only the top 5-10% later.
 """
 from __future__ import annotations
-import json
+
 from datetime import datetime, timezone
 from typing import Iterable
 
 from apify_client import ApifyClient
 
-from config import APIFY_TOKEN, APIFY_ACTORS, NICHES
+from config import APIFY_ACTORS, APIFY_TOKEN, NICHES
 from database import upsert_post
 
 

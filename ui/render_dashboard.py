@@ -8,15 +8,16 @@ Opens in browser, no server required. Shows:
   - Latest week plan (if any)
 """
 from __future__ import annotations
-import json
+
 import html
+import json
 import webbrowser
 from datetime import datetime
 from pathlib import Path
 
+from analyzer.timing import DAY_NAMES
 from config import NICHES, ROOT
 from database import conn
-from analyzer.timing import DAY_NAMES
 
 OUT = ROOT / "ui" / "dashboard.html"
 

@@ -8,9 +8,10 @@ Algorithm:
   5. Planner picks top 7 distinct (day,hour) slots for the week.
 """
 from __future__ import annotations
+
+from collections import defaultdict
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-from collections import defaultdict
 
 from config import NICHES
 from database import conn

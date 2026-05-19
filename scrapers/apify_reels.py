@@ -4,14 +4,13 @@ This is the only actor returning transcripts + reliable audio_id.
 Use sparingly: only on the top 5-10% from discovery (high viral_score).
 """
 from __future__ import annotations
-import json
+
 from datetime import datetime, timezone
-from typing import Iterable
 
 from apify_client import ApifyClient
 
-from config import APIFY_TOKEN, APIFY_ACTORS
-from database import upsert_post, upsert_sound, conn
+from config import APIFY_ACTORS, APIFY_TOKEN
+from database import conn, upsert_post, upsert_sound
 
 
 def _client() -> ApifyClient:
