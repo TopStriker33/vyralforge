@@ -5,7 +5,7 @@ Thank you for considering a contribution. Vyral Forge is built for solo creators
 ## Quick setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/vyralforge.git
+git clone https://github.com/TopStriker33/vyralforge.git
 cd vyralforge
 python -m venv .venv
 source .venv/bin/activate

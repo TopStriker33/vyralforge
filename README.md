@@ -45,7 +45,7 @@ It scrapes the top performers in *your* niche on Instagram (and watches TikTok f
 ### 1. Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/vyralforge.git
+git clone https://github.com/TopStriker33/vyralforge.git
 cd vyralforge
 python -m venv .venv
 source .venv/bin/activate    # Windows: .\.venv\Scripts\Activate.ps1
