@@ -4,7 +4,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Made for creators](https://img.shields.io/badge/built%20for-solo%20creators-ff69b4.svg)](https://github.com/)
+[![CI](https://github.com/TopStriker33/vyralforge/actions/workflows/ci.yml/badge.svg)](https://github.com/TopStriker33/vyralforge/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-20%20passing-brightgreen.svg)](https://github.com/TopStriker33/vyralforge/tree/main/tests)
+[![Made for creators](https://img.shields.io/badge/built%20for-solo%20creators-ff69b4.svg)](https://github.com/TopStriker33/vyralforge)
 
 ## Why this exists
 
@@ -151,6 +153,16 @@ The planner picks "rising" sounds with TikTok-first detection by default. See `a
 - [ ] Phase 4 — AI gen pipeline integration (ComfyUI / Flux LoRA for content multiplier)
 - [ ] Phase 5 — X (Twitter) virality engine port
 - [ ] Phase 6 — Multi-creator collaboration layer (VA permissions, approval queues)
+
+## Development
+
+```bash
+pip install -r requirements-dev.txt   # pytest + ruff
+pytest tests/                          # run the 20-test suite
+ruff check .                           # lint
+```
+
+CI runs on every push across Python 3.10/3.11/3.12 on Ubuntu + Windows. See [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
 ## Contributing
 

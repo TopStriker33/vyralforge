@@ -1,0 +1,49 @@
+[project]
+name = "vyralforge"
+version = "0.1.0"
+description = "Local-first virality engine for short-form video creators. Scrapes top performers, scores against the 2026 Instagram algorithm, generates AI-assisted 7-day posting plans."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Vyral Forge Contributors" }
+]
+keywords = [
+    "creator-economy", "social-media", "instagram", "tiktok",
+    "virality", "content-planning", "analytics", "claude", "apify"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Office/Business",
+]
+
+[project.urls]
+Homepage = "https://github.com/TopStriker33/vyralforge"
+Repository = "https://github.com/TopStriker33/vyralforge"
+Issues = "https://github.com/TopStriker33/vyralforge/issues"
+Changelog = "https://github.com/TopStriker33/vyralforge/blob/main/CHANGELOG.md"
+
+[project.scripts]
+vyralforge = "vyralforge:cli"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --tb=short"
