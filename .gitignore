@@ -1,0 +1,17 @@
+.env
+.env.local
+data/*.db
+.venv/
+__pycache__/
+*.pyc
+ui/dashboard.html
+
+# Private sprint folders — exclude all
+sprints/
+
+# Local memory / notes / private application materials
+notes.md
+NOTES.md
+*.local.*
+.apply-*.md
+
